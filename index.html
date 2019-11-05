@@ -1,24 +1,15 @@
 <!doctype html>
-<html lang="en">
-
+<html>
 	<head>
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Data Visualization Fundamentals - Aaron Siegel</title>
+		<title>Data Visualization for Research</title>
 
-		<meta name="description" content="Introduction presentation for the data visualization course at Designskolen Kolding, Denmark.">
-		<meta name="author" content="Aaron Siegel">
-
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-
-		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="css/theme/designatusc.css">
 
-		<!-- Code syntax highlighting -->
+		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
 		<!-- Printing and PDF exports -->
@@ -30,573 +21,454 @@
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
 
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
+		<style>
+			.noheader header { opacity: 0;}
+			.blackbg body{background:#000; color:#fff;}
+			</style>
 	</head>
 
 	<body>
-
 		<div class="reveal">
-
-			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 
-				<section data-background="images/earth_horizon.jpg">
+				<!-- header and footer stays on page and changes when tweaked by <style> inside each <section> -->
+				<header>
+					<span class="left"><img src="img/logo.png" class="logo"></span>
+					<!-- <span class="right">USC Jimmy Iovine and Andre Young Academy</span> -->
+				</header>
+
+				<footer>
+					<span id="leftside" class="left"></span>
+					<span id="rightside" class="right"></span>
+				</footer>
+
+				<!--
+				<section data-state="noheader" data-background-size="contain" data-background="img/colorbars.png">
+				</section>
+				-->
+
+				<section data-background="img/intro.png" data-background-size="contain">
 					<div class="titletext">
-						<h1>Data Visualization Fundamentals</h1>
+						<h1>Data Visualization<br/>Fundamentals</h1>
 						<br/>
-						Aaron Siegel<br/>
-						October 3rd, 2016<br/><br/>
-						<div>
-							<a href="http://iovine-young.usc.edu/">
-								<img id="dsklogo" src="images/usclogo.png" />
-							</a>
-							<a href="http://www.datadreamer.com">
-								<img id="datadreamerlogo" src="images/datadreamerlogo.png" />
-							</a>
-						</div>
+						<span style="font-size:0.8em">Aaron Siegel<br/>
+						Assistant Professor of Design</span>
 					</div>
 				</section>
 
-				<section>
-					<h2>Working with Data</h2>
-				</section>
-
-				<section>
-					<h3>What is data?</h3>
+				<section data-transition="convex" data-background="img/gradientbg.png" data-background-size="contain">
+					<h2 style="width:75%;">What is Data?</h2>
 					<br/>
-
-					<div class="third">
-						Data.
-						<p class="definition">
+					<div class="contentrow">
+						<div class="contenttab fragment fade-left">
+							<h4 class="st">Data.</h4>
+							<br/>
 							Simple facts lacking context.
-						</p>
-					</div>
-
-					<div class="third">
-						Information.
-						<p class="definition">
-							Data put within context.
-						</p>
-					</div>
-
-					<div class="third">
-						Knowledge.
-						<p class="definition">
-							Information that has been justified, true, and believed.
-						</p>
+						</div>
+						<div class="contenttab fragment fade-left">
+							<h4 class="st">Information.</h4>
+							<br/>
+							Data put into context.
+						</div>
+						<div class="contenttab fragment fade-left">
+							<h4 class="st">Knowledge.</h4>
+							<br/>
+							Information that has been justified true and believed.
+						</div>
 					</div>
 				</section>
 
-				<section>
-					<h3>Data Qualities</h3>
-					<br/>
-
-					<div class="third">
-						Data Ubiquity.
-						<p class="definition">
+				<section data-transition="convex" data-background="img/gradientbg.png" data-background-size="contain">
+					<h2 style="width:75%;">Data Qualities.</h2><br/>
+					<div class="contentrow">
+						<div class="contenttab fragment fade-left">
+							<h4 class="st">Data Ubiquity.</h4>
+							<br/>
 							Data can be found everywhere.
-						</p>
-					</div>
-
-					<div class="third">
-						Data Diversity.
-						<p class="definition">
+						</div>
+						<div class="contenttab fragment fade-left">
+							<h4 class="st">Data Diversity.</h4>
+							<br/>
 							Data comes in many different forms.
-						</p>
-					</div>
-
-					<div class="third">
-						Data Importance.
-						<p class="definition">
+						</div>
+						<div class="contenttab fragment fade-left">
+							<h4 class="st">Data Importance.</h4>
+							<br/>
 							Understanding data is critical for making progress.
-						</p>
+						</div>
 					</div>
 				</section>
 
-				<section>
-					<h3>Evaluating Data</h3>
-					<br/>
 
-					<ol>
-						<li class="fragment">
-							Dimensionality.
-							<p class="definition">
-								A measure of the number of variable properties of a given object or data sample.
-							</p>
-						</li>
 
-						<li class="fragment">
-							Range.
-							<p class="definition">
-								The measure between the minimum and maximum values for a given variable property.
-							</p>
-						</li>
 
-						<li class="fragment">
-							Granularity.
-							<p class="definition">
-								The resolution of a set of data samples or the possible values within a variable property.
-							</p>
-						</li>
-					</ol>
 
-					<ol start="4">
-						<li class="fragment">
-							Correlation and Causation.
-							<p class="definition">
-								The phenomena of variable properties fluxuating in sync; by relationship or effect.
-							</p>
-						</li>
 
-						<li class="fragment">
-							Regression Analysis.
-							<p class="definition">
-								The statistical process for estimating the relationships among variable properties.
-							</p>
-						</li>
-					</ol>
 
+				<section data-state="noheader" data-background="#000">
+					<h1 style="color:#fff;">History of Abstraction in Art and Design.</h1>
 				</section>
 
-				<section>
-					<h3>Posing Questions</h3>
-					<br/>
+				<section data-state="noheader blackbg" data-background="#000">
+					<h2 style="color:#fff;">What does <span style="text-decoration:underline;">Art</span> have to do with <span style="text-decoration:underline;">Data</span>?</h2><br/>
+					<ul style="color:#fff; font-size:1.5em; width: 70%;" class="left">
+						<li class="fragment fade-left"><span style="text-decoration:underline;">Art</span> is about the human condition.</li>
+						<li class="fragment fade-left"><span style="text-decoration:underline;">Visual art</span> is communication through form.</li>
+						<li class="fragment fade-left"><span style="text-decoration:underline;">Representational art</span> is visual art focused on a subject.</li>
+					</ul>
+				</section>
 
-					<div class="third numbered fragment">
-						1. Understanding your Subject.
-						<p class="definition">
-							What's interesting about it?
-						</p>
-					</div>
+				<section data-state="noheader blackbg washington" data-background-size="contain" data-background="img/washington.jpg">
+					<style>.washington footer #leftside:after{content: "Washington Crossing the Delaware - Emanuel Leutze (1851)";color:#fff; background:rgba(0,0,0,0.6); padding:10px;}</style>
+				</section>
 
-					<div class="third numbered fragment">
-						2. Hypothesis.
-						<p class="definition">
-							What do you think will happen?
-						</p>
-					</div>
+				<section data-state="noheader blackbg lemoulin" data-background-size="contain" data-background="img/lemoulin.jpg">
+					<style>.lemoulin footer #leftside:after{content: "Le Moulin de la Galette - Pierre-Auguste Renoir (1876)";color:#fff; background:rgba(0,0,0,0.6); padding:10px;}</style>
+				</section>
 
-					<div class="third numbered fragment">
-						3. Methodology.
-						<p class="definition">
-							How do we proceed?
-						</p>
+				<section data-state="noheader blackbg" data-background-size="contain" data-background="img/artmovements.jpg">
+				</section>
+
+				<section data-state="noheader blackbg kandinsky" data-background-size="contain" data-background="img/kandinsky.jpg">
+					<style>.kandinsky footer #leftside:after{content: "On White II - Wassily Kandinsky (1923)";color:#fff; background:rgba(0,0,0,0.6); padding:10px;}</style>
+				</section>
+
+				<section data-state="noheader blackbg klint" data-background-size="contain" data-background="img/hilmaklint.jpg">
+					<style>.klint footer #leftside:after{content: "Hilma af Klint - Paintings for the Future (1906)";color:#fff; background:rgba(0,0,0,0.6); padding:10px;}</style>
+				</section>
+
+				<section data-state="noheader blackbg pointandlinetoplane" data-background-size="contain" data-background="img/pointandlinetoplane.jpg">
+					<style>.pointandlinetoplane footer #leftside:after{content: "Point and Line to Plane - Wassily Kandinsky (1926)";color:#fff; background:rgba(0,0,0,0.6); padding:10px;}</style>
+				</section>
+
+				<section data-state="noheader blackbg beethoven" data-background-size="contain" data-background="img/beethoven.jpg">
+					<style>.beethoven footer #leftside:after{content: "Beethoven's 5th Symphony - Wassily Kandinsky (1926)";color:#fff; background:rgba(0,0,0,0.6); padding:10px;}</style>
+				</section>
+
+				<section data-state="noheader blackbg bormann" data-background-size="contain" data-background="img/bormann.jpg">
+					<style>.bormann footer #leftside:after{content: "Analysis of a Piece - Heinrich-Siegried Bormann (1930)";color:#fff; background:rgba(0,0,0,0.6); padding:10px;}</style>
+				</section>
+
+				<section data-state="noheader semiologyofgraphics" data-background-size="contain" data-background="img/semiologyofgraphics.jpg">
+					<style>.semiologyofgraphics footer #leftside:after{content: "Semiologie Graphique - Jaques Bertin (1967)";color:#fff; background:rgba(0,0,0,0.6); padding:10px;}</style>
+				</section>
+
+				<section data-state="noheader tufte" data-background-size="contain" data-background="img/tufte.jpg">
+					<style>.tufte footer #leftside:after{content: "The Visual Display of Quantitative Information - Edward Tufte (1983)";color:#fff; background:rgba(0,0,0,0.6); padding:10px;}</style>
+				</section>
+
+
+
+
+
+
+
+				<section data-background="img/gradientbg.png" data-background-size="contain">
+					<h1>Creating a Visual Language.</h1>
+				</section>
+
+				<section data-transition="convex" data-background="img/gradientbg.png" data-background-size="contain">
+					<h2 style="width:75%;">Asking the right questions.</h2><br/>
+					<div class="contentrow">
+						<div class="contenttab fragment fade-left">
+							<h4 class="st">Increase Understanding.</h4>
+							<br/>
+							The more you know, the better your questions get.
+						</div>
+						<div class="contenttab fragment fade-left">
+							<h4 class="st">Hypothesis.</h4>
+							<br/>
+							What do you think is going to happen? What would happen if __________?
+						</div>
+						<div class="contenttab fragment fade-left">
+							<h4 class="st">Methodology.</h4>
+							<br/>
+							How do you intend to proceed?
+						</div>
 					</div>
 				</section>
 
-				<section>
-					<h3>Transposing Data</h3>
-					<br/>
-					<p class="definition" style="margin-left:10%;">
+				<section data-transition="convex" data-background="img/gradientbg.png" data-background-size="contain">
+					<h2 style="width:75%;">Evaluating Data.</h2><br/>
+					<div class="contentrow">
+						<div class="contenttab fragment fade-left">
+							<h4 class="st">Dimensionality.</h4>
+							<br/>
+							A measure of the number of variable properties of a given object or data sample.
+						</div>
+						<div class="contenttab fragment fade-left">
+							<h4 class="st">Range.</h4>
+							<br/>
+							The measure between the minimum and maximum values for a given variable property.
+						</div>
+						<div class="contenttab fragment fade-left">
+							<h4 class="st">Granularity.</h4>
+							<br/>
+							The resolution of a set of data samples or the possible values within a variable property.
+						</div>
+					</div>
+				</section>
+
+				<section data-transition="convex" data-background="img/gradientbg.png" data-background-size="contain">
+					<h2 style="width:75%;">Transposing Data.</h2><br/>
+					<div style="width:75%;" class="contentrow fragment fade-left">
 						The process of translating data into a form that can be experienced through senses (visible, audible, tangible).
-					</p>
+					</div>
 				</section>
 
-				<section>
-					<h3>History of Abstraction<br/> in Art and Design</h3>
-				</section>
-
-				<section>
-					<h3>What does <font style="text-decoration:underline;">art</font> have to do with <font style="text-decoration:underline;">data</font>?</h3>
-					<br/>
-
-					<span class="fragment"><span style="text-decoration:underline;">Art</span> is about the human condition.</span><br/>
-					<span class="fragment"><span style="text-decoration:underline;">Visual art</span> is communication through form.</span><br/>
-					<span class="fragment"><span style="text-decoration:underline;">Representational art</span> is visual art focused on a subject.</span>
-				</section>
-
-				<!-- realism vs. modernism -->
-
-				<section data-background="images/washington.jpg">
-					<div class="caption"><i>Washington Crossing the Delaware</i> - Emanuel Leutze (1851)</div>
-				</section>
-
-				<section data-background="images/lemoulin.jpg">
-					<div class="caption"><i>Le Moulin de la Galette</i> - Pierre-Auguste Renoir (1876)</div>
-				</section>
-
-				<section data-background="images/artmovements.jpg">
-					<div class="caption" style="margin-top:24% !important">
-						<div class="third">
-							Post-Impressionism
+				<section data-transition="convex" data-background="img/gradientbg.png" data-background-size="contain">
+					<h2 style="width:75%;">Data Variables &amp;<br/>Visual Variables.</h2><br/>
+						<div class="contentrow">
+							<div class="contenttab fragment fade-left">
+								<h4 >Number of Variables.</h4>
+								<br/>
+								Match properties in your data to visual properties in your visualization (ie: position, size, color, value, etc).
+							</div>
+							<div class="contenttab fragment fade-left">
+								<h4 class="st">Range of Variables.</h4>
+								<br/>
+								Choose an appropriate visual variable that scales properly with the range of your data field (ie: black to white, color over spectrum, width/height, etc).
+							</div>
+							<div class="contenttab fragment fade-left">
+								<h4 class="st">Comparison Between Variables.</h4>
+								<br/>
+								Consider accommodating for unexpected patterns to appear between different variables, and choosing the right visual representation to present comparisons.
+							</div>
 						</div>
-						<div class="third">
-							Expressionism
+				</section>
+
+				<section data-state="noheader" data-background="img/france.jpg" data-background-size="contain" data-transition="fade">
+				</section>
+
+				<section data-transition="convex" data-background="img/gradientbg.png" data-background-size="contain">
+					<h2 style="width:75%;">Design System.</h2><br/>
+						<div class="contentrow">
+							<div class="contenttab fragment fade-left">
+								<h4 class="st">Design as Template.</h4>
+								<br/>
+								Create a visualization to accommodate changing content over time.
+							</div>
+							<div class="contenttab fragment fade-left">
+								<h4 class="st">Preparing for the Unexpected.</h4>
+								<br/>
+								Prepare your visualization to accept results that may be out of the range of your current ones.
+							</div>
+							<div class="contenttab fragment fade-left">
+								<h4 class="st">Comparisons Over Time.</h4>
+								<br/>
+								Ensure consistency in your visualization in order to make comparisons between today's data and yesterday's data.
+							</div>
 						</div>
-						<div class="third">
-							Fauvism
+				</section>
+
+
+
+
+
+
+
+				<section data-state="noheader" data-background="#000">
+					<h1 style="color:#fff;">History of Information Design.</h1>
+				</section>
+
+				<section data-state="noheader playfair1" data-background-color="#000" data-background-size="contain" data-background="img/playfair1.jpg">
+					<style>.playfair1 footer #leftside:after{content: "Exports and Imports to and from Denmark & Norway - William Playfair (1786)";color:#fff; background:rgba(0,0,0,0.6); padding:10px;}</style>
+				</section>
+
+				<section data-state="noheader playfair2" data-background-color="#000" data-background-size="contain" data-background="img/playfair2.jpg">
+					<style>.playfair2 footer #leftside:after{content: "Extent Population & Revenue of the Principal Nations in Europe - William Playfair (1804)";color:#fff; background:rgba(0,0,0,0.6); padding:10px;}</style>
+				</section>
+
+				<section data-state="noheader playfair3" data-background-color="#000" data-background-size="contain" data-background="img/playfair3.jpg">
+					<style>.playfair3 footer #leftside:after{content: "Universal Commercial History - William Playfair (1805)";color:#fff; background:rgba(0,0,0,0.6); padding:10px;}</style>
+				</section>
+
+				<section data-state="noheader johnsnow" data-background-color="#000" data-background-size="contain" data-background="img/johnsnow.jpg">
+					<style>.johnsnow footer #leftside:after{content: "Broad Street Cholera Outbreak - John Snow (1854)";color:#fff; background:rgba(0,0,0,0.6); padding:10px;}</style>
+				</section>
+
+				<section data-state="noheader" data-background="img/johnsnowdetail1.jpg">
+				</section>
+
+				<section data-state="noheader" data-background="img/johnsnowdetail2.jpg">
+				</section>
+
+				<section data-state="noheader minard1" data-background-color="#000" data-background-size="contain" data-background="img/minard1.jpg">
+					<style>.minard1 footer #leftside:after{content: "Cattle Consumption in Paris by Region - Charles Joseph Minard (1858)";color:#fff; background:rgba(0,0,0,0.6); padding:10px;}</style>
+				</section>
+
+				<section data-state="noheader minard2" data-background-color="#000" data-background-size="contain" data-background="img/minard2.jpg">
+					<style>.minard2 footer #leftside:after{content: "Figurative Map of the Russian Campaign of 1812 - Charles Joseph Minard (1869)";color:#fff; background:rgba(0,0,0,0.6); padding:10px;}</style>
+				</section>
+
+				<section data-state="noheader minard3" data-background-color="#000" data-background-size="contain" data-background="img/minard3.png">
+					<style>.minard3 footer #leftside:after{content: "Figurative Map of the Russian Campaign of 1812 - Charles Joseph Minard (1869)";color:#fff; background:rgba(0,0,0,0.6); padding:10px;}</style>
+				</section>
+
+				<section data-state="noheader ejmarey" data-background-color="#000" data-background-size="contain" data-background="img/ejmarey.jpg">
+					<style>.ejmarey footer #leftside:after{content: "Étienne-Jules Marey (1878)";color:#fff; background:rgba(0,0,0,0.6); padding:10px;}</style>
+				</section>
+
+				<section data-state="noheader londonmap" data-background-color="#000" data-background-size="contain" data-background="img/londonmap_1932.jpg">
+					<style>.londonmap footer #leftside:after{content: "London Underground Map (1932)";color:#fff; background:rgba(0,0,0,0.6); padding:10px;}</style>
+				</section>
+
+				<section data-state="noheader harrybeck" data-background-color="#000" data-background-size="contain" data-background="img/harrybeck.jpg">
+					<style>.harrybeck footer #leftside:after{content: "London Underground Map - Harry Beck (1933)";color:#fff; background:rgba(0,0,0,0.6); padding:10px;}</style>
+				</section>
+
+				<section data-state="noheader" data-background-color="#000" data-background-size="contain" data-background="img/metromaps.jpg">
+				</section>
+
+				<section data-state="noheader" data-background-color="#000" data-background-size="contain" data-background="img/metromaps2.jpg">
+				</section>
+
+				<section data-state="noheader mars" data-background-color="#000" data-background-size="contain" data-background="img/mars.jpg">
+					<style>.mars footer #leftside:after{content: "First TV Image of Mars - Mariner 4, Jet Propulsion Laboratory (1965)";color:#fff; background:rgba(0,0,0,0.6); padding:10px;}</style>
+				</section>
+
+				<section data-state="noheader mars" data-background-color="#000" data-background-size="contain" data-background="img/marsdetails.jpg">
+				</section>
+
+
+
+
+
+
+
+				<section data-state="noheader" data-background-color="#000">
+					<h2 style="color:#fff;">Contemporary Data Visualization.</h2>
+				</section>
+
+				<section data-state="noheader zipdecode" data-background-size="contain" data-background-color="#000" data-background="img/zipdecode.png">
+					<a href="http://benfry.com/zipdecode/" target="new"><div class="invisiblebutton"></div></a>
+					<style>.zipdecode footer #leftside:after{content: "Zipdecode - Ben Fry (1999, 2004)";color:#fff; background:rgba(0,0,0,0.6); padding:10px;}</style>
+				</section>
+
+				<section data-state="noheader newsmap" data-background-size="contain" data-background-color="#000" data-background="img/newsmap.jpg">
+					<a href="http://benfry.com/zipdecode/" target="new"><div class="invisiblebutton"></div></a>
+					<style>.newsmap footer #leftside:after{content: "Newsmap - Marcos Weskamp (2004)";color:#fff; background:rgba(0,0,0,0.6); padding:10px;}</style>
+				</section>
+
+				<section data-state="noheader wefeelfine" data-background-size="contain" data-background-color="#000" data-background="img/wefeelfine.jpg">
+					<a href="http://number27.org/wefeelfine" target="new"><div class="invisiblebutton"></div></a>
+					<style>.wefeelfine footer #leftside:after{content: "We Feel Fine - Jonathan Harris & Sep Kamvar (2006)";color:#fff; background:rgba(0,0,0,0.6); padding:10px;}</style>
+				</section>
+
+				<section data-state="noheader" data-background-size="contain" data-background-color="#000"  data-state="noheader" data-background="#000" data-background-video="video/wefeelfine.mp4">
+				</section>
+
+				<section data-state="noheader feltron" data-background-color="#000" data-background-size="contain" data-background="img/feltron.jpg">
+					<a href="http://feltron.com/" target="new"><div class="invisiblebutton"></div></a>
+					<style>.feltron footer #leftside:after{content: "Annual Reports - Nicholas Felton (2005 - 2015)";color:#fff; background:rgba(0,0,0,0.6); padding:10px;}</style>
+				</section>
+
+				<section data-state="noheader flightpatterns" data-background-color="#000" data-background-size="contain" data-background="img/flightpatterns.jpg">
+					<a href="http://www.aaronkoblin.com/work/flightpatterns/" target="new"><div class="invisiblebutton"></div></a>
+					<style>.flightpatterns footer #leftside:after{content: "Flight Patterns - Aaron Koblin (2005)";color:#fff; background:rgba(0,0,0,0.6); padding:10px;}</style>
+				</section>
+
+				<section data-state="noheader" data-background-size="contain" data-background-color="#000" data-background-video="video/flightpatterns.mp4">
+				</section>
+
+				<section data-state="noheader cabspotting" data-background-color="#000" data-background-size="contain" data-background="img/cabspotting.jpg">
+					<a href="http://stamen.com/work/cabspotting/" target="new"><div class="invisiblebutton"></div></a>
+					<style>.cabspotting footer #leftside:after{content: "Cab Spotting - Stamen Design (2006)";color:#fff; background:rgba(0,0,0,0.6); padding:10px;}</style>
+				</section>
+
+				<section data-state="noheader" data-background-size="contain" data-background-color="#000" data-background-video="video/cabspotting.mp4">
+				</section>
+
+				<section data-state="noheader fischer3" data-background-color="#000" data-background-size="contain" data-background="img/fischer3.jpg">
+					<a href="https://www.flickr.com/photos/walkingsf/4981441877/in/album-72157624812674967/" target="new"><div class="invisiblebutton"></div></a>
+					<style>.fischer3 footer #leftside:after{content: "Race & Ethnicity Census 2000 - Eric Fischer (2010)";color:#fff; background:rgba(0,0,0,0.6); padding:10px;}</style>
+				</section>
+
+				<section data-state="noheader fischer4" data-background-color="#000" data-background-size="contain" data-background="img/fischer4.jpg">
+					<a href="https://www.flickr.com/photos/walkingsf/5926357450/in/album-72157627140310742/" target="new"><div class="invisiblebutton"></div></a>
+					<style>.fischer4 footer #leftside:after{content: "See Something or Say Something - Eric Fischer (2011)";color:#fff; background:rgba(0,0,0,0.6); padding:10px;}</style>
+				</section>
+
+				<section data-state="noheader cascade" data-background-color="#000" data-background-size="contain" data-background="img/cascade.jpg">
+					<a href="http://nytlabs.com/projects/cascade.html" target="new"><div class="invisiblebutton"></div></a>
+					<style>.cascade footer #leftside:after{content: "Cascade - New York Times R&D; Office for Creative Research (2012)";color:#fff; background:rgba(0,0,0,0.6); padding:10px;}</style>
+				</section>
+
+				<section data-state="noheader" data-background-color="#000" data-background-size="contain" data-background-video="video/cascade.mp4">
+				</section>
+
+				<section data-state="noheader windmap" data-background-size="contain" data-background="img/windmap.jpg">
+					<a href="http://hint.fm/wind/" target="new"><div class="invisiblebutton"></div></a>
+					<style>.windmap footer #leftside:after{content: "Wind Map - Martin Wattenberg & Fernanda Viegas (2012)";color:#fff; background:rgba(0,0,0,0.6); padding:10px;}</style>
+				</section>
+
+				<section data-state="noheader" data-background-size="contain" data-background-video="video/windmap.mp4">
+				</section>
+
+				<section data-state="noheader" data-background-color="#000" data-background-size="contain" data-background-video="video/periscopicgundeaths.mp4">
+					<a href="http://guns.periscopic.com/" target="new"><div class="invisiblebutton"></div></a>
+					<style>.periscopic footer #leftside:after{content: "Gun Deaths - Periscopic (2013)";color:#fff; background:rgba(0,0,0,0.6); padding:10px;}</style>
+				</section>
+
+
+
+
+
+
+
+
+				<section data-background="img/gradientbg.png" data-background-size="contain">
+					<h2 style="width:75%;">Takeaways.</h2>
+					<div class="contentrow">
+						<div class="contenttab fragment fade-left">
+							<h4>Abstraction.</h4>
+							<br/>
+							Only showing what's necessary.
+						</div>
+						<div class="contenttab fragment fade-left">
+							<h4>Perspective.</h4>
+							<br/>
+							Reshaping the viewer's perspective on a subject matter.
+						</div>
+						<div class="contenttab fragment fade-left">
+							<h4>Narrative.</h4>
+							<br/>
+							Crafting the appropriate narrative to communicate to viewers.
 						</div>
 					</div>
-					<div class="caption" style="margin-top:26% !important">
-						<div class="third">
-							Cubism
-						</div>
-						<div class="third">
-							Suprematism
-						</div>
-						<div class="third">
-							Neoplasticism
-						</div>
-					</div>
 				</section>
 
-				<section data-background="images/kandinsky.jpg">
-					<div class="caption"><i>On White II</i> - Wassily Kandinsky (1923)</div>
-				</section>
-
-				<section data-background="images/pointandlinetoplane.jpg">
-					<div class="caption"><i>Point and Line to Plane</i> - Wassily Kandinsky (1926)</div>
-				</section>
-
-				<section data-background="images/beethoven.jpg">
-					<div class="caption"><i>Beethoven's 5th Symphony</i> - Wassily Kandinsky (1926)</div>
-				</section>
-
-				<section data-background="images/bormann.jpg">
-					<div class="caption"><i>Analysis of a Piece</i> - Heinrich-Siegried Bormann (1930)</div>
-				</section>
-
-				<section data-background="images/semiologyofgraphics.jpg">
-					<div class="caption"><i>Semiologie Graphique</i> - Jaques Bertin (1967)</div>
-				</section>
-
-				<section data-background="images/france2.jpg">
-					<div class="caption"><i>Semiologie Graphique</i> - Jaques Bertin (1967)</div>
-				</section>
-
-				<section data-background="images/tufte.jpg">
-					<div class="caption"><i>The Visual Display of Quantitative Information</i> - Edward Tufte (1983)</div>
-				</section>
-
-
-
-				<section>
-					<h2>History of Information Design</h2>
-				</section>
-
-				<section>
-					Classical Information Design
-				</section>
-
-				<section data-background="images/playfair1.jpg">
-					<div class="caption"><i>Exports and Imports to and from Denmark &amp; Norway</i> - William Playfair (1786)</div>
-				</section>
-
-				<section data-background="images/playfair2.jpg">
-					<div class="caption"><i>Extent Population &amp; Revenue of the Principal Nations in Europe</i> - William Playfair (1804)</div>
-				</section>
-
-				<section data-background="images/playfair3.jpg">
-					<div class="caption"><i>Universal Commercial History</i> - William Playfair (1805)</div>
-				</section>
-
-				<section>
-					Cartography
-				</section>
-
-				<section data-background="images/johnsnow.jpg">
-					<div class="caption"><i>Broad Street Cholera Outbreak</i> - John Snow (1854)</div>
-				</section>
-
-				<section data-background="images/johnsnowdetail1.jpg">
-				</section>
-
-				<section data-background="images/johnsnowdetail2.jpg">
-				</section>
-
-				<section data-background="images/minard1.jpg">
-					<div class="caption"><i>Cattle Consumption in Paris by Region</i> - Charles Joseph Minard (1858)</div>
-				</section>
-
-				<section data-background="images/minard2.jpg">
-					<div class="caption"><i>Figurative Map of the Russian Campaign of 1812</i> - Charles Joseph Minard (1869)</div>
-				</section>
-
-				<section data-background="images/ejmarey.jpg">
-					<div class="caption fragment"><i>Train Schedule</i> - Étienne-Jules Marey (1878)</div>
-				</section>
-
-				<section data-background="images/londonmap_1932.jpg">
-					<div class="caption"><i>London Underground Map</i> (1932)</div>
-				</section>
-
-				<section data-background="images/harrybeck.jpg">
-					<div class="caption"><i>London Underground Map</i> - Harry Beck (1933)</div>
-				</section>
-
-				<section data-background="images/metromaps.jpg">
-				</section>
-
-				<section data-background="images/metromaps2.jpg">
-				</section>
-
-				<section data-background="images/mars.jpg">
-					<div class="caption"><i>First TV Image of Mars</i> - Mariner 4, Jet Propulsion Laboratory (1965)</div>
-				</section>
-
-				<section data-background="images/marsdetails.jpg">
-				</section>
-
-				<section>
-					Contemporary Data Visualization
-				</section>
-
-				<section data-background="images/zipdecode.png">
-					<div class="caption"><a href="http://benfry.com/zipdecode/" target="new"><i>Zipdecode</i> - Ben Fry (1999, 2004)</a></div>
-				</section>
-
-				<section data-background="images/textarc.png">
-					<div class="caption"><a href="http://textarc.org" target="new"><i>TextArc</i> - Bradford Paley (2002)</a></div>
-				</section>
-
-				<section data-background="images/newsmap.jpg">
-					<div class="caption"><a href="http://newsmap.jp" target="new"><i>Newsmap</i> - Marcos Weskamp (2004)</a></div>
-				</section>
-
-				<section data-background="images/wefeelfine.jpg">
-					<div class="caption"><a href="http://number27.org/wefeelfine" target="new"><i>We Feel Fine</i> - Jonathan Harris &amp; Sep Kamvar (2006)</a></div>
-				</section>
-
-				<section data-background-video="videos/wefeelfine.mp4">
-				</section>
-
-				<section data-background="images/feltron.jpg">
-					<div class="caption"><a href="http://feltron.com/" target="new"><i>Annual Reports</i> - Nicholas Felton (2005 - 2015)</a></div>
-				</section>
-
-				<section data-background="images/flightpatterns.jpg">
-					<div class="caption"><a href="http://www.aaronkoblin.com/work/flightpatterns/" target="new"><i>Flight Patterns</i> - Aaron Koblin (2005)</a></div>
-				</section>
-
-				<section data-background-video="videos/flightpatterns.mp4">
-				</section>
-
-				<section data-background="images/cabspotting.jpg">
-					<div class="caption"><a href="http://stamen.com/work/cabspotting/" target="new"><i>Cab Spotting</i> - Stamen Design (2006)</a></div>
-				</section>
-
-				<section data-background-video="videos/cabspotting.mp4">
-				</section>
-
-				<section data-background="images/fischer3.jpg">
-					<div class="caption"><a href="https://www.flickr.com/photos/walkingsf/albums/72157624812674967" target="new"><i>Race &amp; Ethnicity Census 2000</i> - Eric Fischer (2010)</a></div>
-				</section>
-
-				<section data-background="images/fischer4.jpg">
-					<div class="caption"><a href="https://www.flickr.com/photos/walkingsf/albums/72157627140310742" target="new"><i>See Something or Say Something</i> - Eric Fischer (2011)</a></div>
-				</section>
-
-				<section data-background="images/cascade.jpg">
-					<div class="caption"><a href="http://nytlabs.com/projects/cascade.html" target="new"><i>Cascade</i> - New York Times R&amp;D &amp; Office for Creative Research (2012)</a></div>
-				</section>
-
-				<section data-background-video="videos/cascade.mp4">
-				</section>
-
-				<section data-background="images/windmap.jpg">
-					<div class="caption"><a href="http://hint.fm/wind/" target="new"><i>Wind Map</i> - Martin Wattenberg &amp; Fernanda Viegas (2012)</a></div>
-				</section>
-
-				<section data-background-video="videos/windmap.mp4">
-				</section>
-
-				<section data-background-video="videos/periscopicgundeaths.mp4">
-					<div class="caption"><a href="http://guns.periscopic.com/" target="new"><i>Gun Deaths</i> - Periscopic (2013)</a></div>
-				</section>
-
-
-
-
-
-				<section>
-					<h2>Process Examples</h2>
-				</section>
-
-				<!-- JPL -->
-
-				<section data-background="images/mro.jpg">
-				</section>
-
-				<section data-background="images/mcsorbit.png">
-				</section>
-
-				<section data-background-video="videos/mcsorbit.mp4">
-				</section>
-
-				<section data-background="images/mcsvi.png">
-				</section>
-
-				<section data-background-video="videos/mcsvi.mp4">
-				</section>
-
-				<section data-background="images/mit.jpg">
-				</section>
-
-				<section data-background="images/livesingapore1.jpg">
-				</section>
-
-				<!-- raining taxis -->
-
-				<section data-background="images/rainingtaxis.jpg">
-				</section>
-
-				<section data-background="images/taxidatasample.jpg">
-				</section>
-
-				<section data-background-video="videos/taxitrips.mp4">
-				</section>
-
-				<section data-background="images/taxispeed.jpg">
-				</section>
-
-				<section data-background="images/taxistatus.jpg">
-				</section>
-
-				<section data-background="images/taxipickups.jpg">
-				</section>
-
-				<section data-background="images/weatherdata.jpg">
-				</section>
-
-				<section data-background="images/taxiweathertest.jpg">
-				</section>
-
-				<section data-background-video="videos/rainingtaxis.mp4">
-				</section>
-
-				<!-- real time talk -->
-
-				<section data-background="images/realtimetalk.jpg">
-				</section>
-
-				<section data-background="images/celltest1.jpg">
-				</section>
-
-				<section data-background="images/celltest2.jpg">
-				</section>
-
-				<section data-background="images/celltest3.jpg">
-				</section>
-
-				<section data-background-video="videos/realtimetalk.mp4">
-				</section>
-
-
-
-
-
-				<section>
-					<h2>Tools for Visualization</h2>
-				</section>
-
-				<section>
-					<h3>Data Management</h3>
-					<br/>
-					<div class="third">
-						Text Editors<br/>
-						<br/>
-						<ul class="definition">
-							<li><a href="https://www.sublimetext.com/">SublimeText</a></li>
-							<li><a href="https://atom.io/">Atom</a></li>
-							<li><a href="http://brackets.io/">Brackets</a></li>
-						</ul>
-					</div>
-					<div class="third">
-						Spreadsheets &amp; Databases<br/>
-						<br/>
-						<ul class="definition">
-							<li><a href="https://products.office.com/en-us/excel">Excel</a></li>
-							<li><a href="https://www.google.com/sheets/about/">Sheets</a></li>
-							<li><a href="http://www.w3schools.com/sql/">SQL</a></li>
-						</ul>
-					</div>
-					<div class="third">
-						Scripting Languages &amp; Utilities<br/>
-						<br/>
-						<ul class="definition">
-							<li><a href="https://www.python.org/">Python</a></li>
-							<li><a href="https://www.r-project.org/">R</a></li>
-							<li><a href="http://www.mathworks.com/products/matlab/">Matlab</a></li>
-						</ul>
-					</div>
-				</section>
-
-				<section>
-					<h3>Graphics</h3>
-					<br/>
-					<div class="third">
-						Programming<br/>
-						<br/>
-						<ul class="definition">
-							<li><a href="http://www.processing.org">Processing</a><br/></li>
-							<li><a href="http://www.p5js.org">P5.js</a></li>
-							<li><a href="http://www.threejs.org">Three.js</a></li>
-						</ul>
-					</div>
-					<div class="third">
-						Illustrating<br/>
-						<br/>
-						<ul class="definition">
-							<li><a href="http://www.adobe.com/products/illustrator.html">Adobe Illustrator</a></li>
-							<li><a href="http://www.adobe.com/products/photoshop.html">Adobe Photoshop</a></li>
-							<li><a href="http://www.adobe.com/products/indesign.html">Adobe InDesign</a></li>
-						</ul>
-					</div>
-					<div class="third">
-						Graphs &amp; Maps<br/>
-						<br/>
-						<ul class="definition">
-							<li><a href="https://d3js.org/">D3.js</a></li>
-							<li><a href="https://www.mapbox.com/">MapBox</a></li>
-							<li><a href="https://www.arcgis.com/features/index.html">ArcGIS</a></li>
-						</ul>
-						<br/>
-					</div>
-				</section>
-
-
-
-				<section>
-					<h1>Questions?</h1>
+				<section data-state="noheader" data-background-color="#000" data-background-size="contain" data-background="img/questions.jpg">
+					<h1 style="color:#fff;">Questions?</h1>
 				</section>
 
 			</div>
-
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
 
 		<script>
-
-			// Full list of configuration options available at:
-			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
-				width: 1280,
-				height: 720,
-				margin: 0,
-				minScale: 0.2,
-				maxScale: 3,
 				controls: false,
 				progress: false,
 				history: true,
 				center: true,
+				width: 1920,
+		    height: 1080,
+		    margin: 0.1,
+		    minScale: 0.2,
+		    maxScale: 2.0,
 
 				transition: 'fade', // none/fade/slide/convex/concave/zoom
 
-				// Optional reveal.js plugins
 				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true }
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
 			});
-
 		</script>
 
 	</body>
